@@ -17,3 +17,9 @@ header {
   background-color: #282c34;
   margin-bottom: 50px;
 }
+
+.app {
+  background: url(../src/images/climbing.jpg);
+  background-repeat: no-repeat;
+  height: 100vh;
+}
