@@ -1,9 +1,11 @@
 import React from 'react'
 
-const Tasks = () => {
+const Tasks = ({taskList}) => {
   return (
     <div>
-      
+      {taskList.map((task) => (
+        <div>{task.text}</div>
+      ))}
     </div>
   )
 }
