@@ -13,16 +13,27 @@ const TaskCardTitle = () => {
   }
 
   const handleSubmit = (e) => {
-    // Enterを押したらページが更新されるといるデフォルトの操作を防ぐ
     e.preventDefault()
     setIsClick(false)
   }
 
+  const handleBlur = () => {
+    setIsClick(false)
+  }
+
   return (
-    <div onClick={handleClick}>
+    <div onClick={handleClick} className='tastCardTitleInputArea'>
       {isClick ? (
         <form onSubmit={handleSubmit}>
-          <input type='text' onChange={handleChange}/>
+          <input
+          className='taskCardTitleInput'
+          type='text'
+          autoFocus
+          onChange={handleChange}
+          onBlur={handleBlur}
+          value={inputCardTitle}
+          maxLength={10}
+          />
         </form>
         ) : (
         <h3>{inputCardTitle}</h3>
