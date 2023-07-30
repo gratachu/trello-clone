@@ -1,10 +1,11 @@
 import React from 'react'
+import Task from './Task'
 
 const Tasks = ({taskList}) => {
   return (
     <div>
       {taskList.map((task) => (
-        <div>{task.text}</div>
+        <Task task={task} />
       ))}
     </div>
   )
