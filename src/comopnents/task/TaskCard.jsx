@@ -22,6 +22,7 @@ const TaskCard = () => {
       <Tasks
         inputText={inputText}
         taskList={taskList}
+        setTaskList={setTaskList}
       />
     </div>
   )
