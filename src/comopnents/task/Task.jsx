@@ -1,4 +1,5 @@
 import React from 'react'
+import { Draggable } from 'react-beautiful-dnd'
 
 const Task = ({task, taskList, setTaskList}) => {
   const handleDelete = (id) => {
@@ -9,13 +10,23 @@ const Task = ({task, taskList, setTaskList}) => {
   }
 
   return (
-    <div className='taskBox'>
-      <p className='taskText'>{task.text}</p>
-      {/* handleDeleteはクリックしたときだけ呼ばれたい */}
-      <button className='taskTrashButton' onClick={() => handleDelete(task.id)}>
-        <i className="fa-solid fa-trash-can"></i>
-      </button>
-    </div>
+    <Draggable draggableId={task.draggableId} index={task.id}>
+      {(provided) => (
+        <div
+          className='taskBox'
+          key={task.id}
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+        >
+          <p className='taskText'>{task.text}</p>
+          {/* handleDeleteはクリックしたときだけ呼ばれたい */}
+          <button className='taskTrashButton' onClick={() => handleDelete(task.id)}>
+            <i className="fa-solid fa-trash-can"></i>
+          </button>
+        </div>
+      )}
+    </Draggable>
   )
 }
 
