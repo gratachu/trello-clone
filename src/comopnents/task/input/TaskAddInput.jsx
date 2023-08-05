@@ -8,7 +8,13 @@ const TaskAddInput = ({
   }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
-    setTaskList([...taskList, {text: inputText}])
+    setTaskList([
+      ...taskList, 
+      {
+        id: taskList.length,
+        text: inputText
+      }
+    ])
     setInputText('')
   }
 
