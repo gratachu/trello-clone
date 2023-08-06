@@ -3,9 +3,13 @@ import Task from './Task'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 
 const Tasks = ({taskList, setTaskList}) => {
+  const handleDragEnd = (result) => {
+    console.log(result)
+  }
+
   return (
     <div>
-      <DragDropContext>
+      <DragDropContext onDragEnd={handleDragEnd}>
         <Droppable droppableId="tasks">
           {(provided) => (
             <div ref={provided.innerRef} {...provided.droppableProps}>
