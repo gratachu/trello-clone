@@ -1,7 +1,7 @@
 import React from 'react'
 import { Draggable } from 'react-beautiful-dnd'
 
-const Task = ({task, taskList, setTaskList}) => {
+const Task = ({task, taskList, setTaskList, index}) => {
   const handleDelete = (id) => {
     // setTaskListでtaskListを更新する
     // taskListの中からクリックしたidとtaskのidが一致するものを除外した配列をsetTaskListに渡す
@@ -10,7 +10,7 @@ const Task = ({task, taskList, setTaskList}) => {
   }
 
   return (
-    <Draggable draggableId={task.draggableId} index={task.id}>
+    <Draggable draggableId={task.draggableId} index={index}>
       {(provided) => (
         <div
           className='taskBox'
