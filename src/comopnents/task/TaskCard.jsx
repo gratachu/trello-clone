@@ -4,7 +4,7 @@ import TaskCardDeleteButton from './button/TaskCardDeleteButton'
 import TaskAddInput from './input/TaskAddInput'
 import Tasks from './Tasks' 
 
-const TaskCard = () => {
+const TaskCard = ({taskCardsList, setTaskCardsList, taskCard}) => {
   // TaskAddInputで入力した値をTasksに渡したいので、ここでstateを管理する
   const [inputText, setInputText] = useState('')
   const [taskList, setTaskList] = useState([])
@@ -13,7 +13,11 @@ const TaskCard = () => {
     <div className='taskCard'>
       <div className='taskCardTitleAndTaskCardDeleteButtonArea'>
         <TaskCardTitle />
-        <TaskCardDeleteButton />
+        <TaskCardDeleteButton
+          taskCardsList={taskCardsList}
+          setTaskCardsList={setTaskCardsList}
+          taskCard={taskCard}
+        />
       </div>
       <TaskAddInput
         inputText={inputText}

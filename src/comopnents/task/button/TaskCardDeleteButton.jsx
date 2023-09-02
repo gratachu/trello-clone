@@ -1,11 +1,15 @@
 
 import React from 'react'
 
-const TaskCardDeleteButton = () => {
+const TaskCardDeleteButton = ({taskCard, setTaskCardsList, taskCardsList}) => {
+  const taskCardDeleteButton = (id) => {
+    setTaskCardsList(taskCardsList.filter((e) => e.id !== id))
+  }
+
   return (
     <div>
-      <button className='taskCardDeleteButton'>
-      <i class="fa-regular fa-circle-xmark"></i>
+      <button className='taskCardDeleteButton' onClick={() => taskCardDeleteButton(taskCard.id)}>
+        <i class="fa-regular fa-circle-xmark"></i>
       </button>      
     </div>
   )
