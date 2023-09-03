@@ -9,7 +9,7 @@ const TaskCardDeleteButton = ({taskCard, setTaskCardsList, taskCardsList}) => {
   return (
     <div>
       <button className='taskCardDeleteButton' onClick={() => taskCardDeleteButton(taskCard.id)}>
-        <i class="fa-regular fa-circle-xmark"></i>
+        <i className="fa-regular fa-circle-xmark"></i>
       </button>      
     </div>
   )
